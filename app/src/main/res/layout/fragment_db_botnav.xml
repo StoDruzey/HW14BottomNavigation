@@ -14,8 +14,6 @@
         app:titleTextColor="@color/white"
         app:title="Database"/>
 
-
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/database_container"
         android:name="androidx.navigation.fragment.NavHostFragment"

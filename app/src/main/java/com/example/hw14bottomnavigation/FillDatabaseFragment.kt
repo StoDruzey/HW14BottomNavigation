@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.example.hw14bottomnavigation.RoomDatabase.RoomPet
 import com.example.hw14bottomnavigation.RoomDatabase.appDatabase
 import com.example.hw14bottomnavigation.databinding.FragmentFilldatabaseBinding
@@ -17,6 +18,8 @@ class FillDatabaseFragment : Fragment() {
     private val petDao by lazy {
         requireContext().appDatabase.petDao()
     }
+
+    private val args by navArgs<FillDatabaseFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

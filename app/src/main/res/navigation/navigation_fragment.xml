@@ -9,12 +9,21 @@
         android:id="@+id/fragment_page"
         android:name="com.example.hw14bottomnavigation.PageFragment"
         android:label="fragment_page"
-        tools:layout="@layout/fragment_page" />
+        tools:layout="@layout/fragment_page" >
+        <action
+            android:id="@+id/action_fragment_page_to_fragment_fill_db"
+            app:destination="@id/fragment_fill_db" />
+    </fragment>
 
     <fragment
         android:id="@+id/fragment_fill_db"
         android:name="com.example.hw14bottomnavigation.FillDatabaseFragment"
-        android:label="fragment_page2"
-        tools:layout="@layout/fragment_filldatabase" />
+        android:label="fragment_fill_db"
+        tools:layout="@layout/fragment_filldatabase">
+
+        <argument
+            android:name="pet_id"
+            app:argType="long"/>
+    </fragment>
 
 </navigation>
