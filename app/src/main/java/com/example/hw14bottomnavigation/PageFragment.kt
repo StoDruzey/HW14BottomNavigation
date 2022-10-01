@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.hw14bottomnavigation.RecyclerView.PetListAdapter
 import com.example.hw14bottomnavigation.RoomDatabase.RoomPet
 import com.example.hw14bottomnavigation.RoomDatabase.appDatabase
@@ -19,7 +21,16 @@ class PageFragment : Fragment() {
         requireContext().appDatabase.petDao()
     }
 
-    private val adapter = PetListAdapter()
+    private val adapter by lazy {
+        PetListAdapter(
+            context = requireContext()
+        ) {
+            val direction = PageFragmentDirections
+                .actionFragmentPageToFragmentFillDb(it.id)
+            findNavController()
+                .navigate(direction)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
